@@ -1,0 +1,9 @@
+<h2><%= @restaurant.name %></h2>
+<p><%= @restaurant.address %></p>
+
+<%= link_to restaurant_path(@restaurant), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-danger' do %> 
+<i class="far fa-trash-alt"></i> Delete
+
+<% end %>
+
+ <%= link_to 'See all articles', articles_path, class: 'btn btn-secondary' %>
