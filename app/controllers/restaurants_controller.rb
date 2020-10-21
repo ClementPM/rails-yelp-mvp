@@ -3,6 +3,10 @@ class RestaurantsController < ApplicationController
     @restaurants = Restaurant.all
   end
 
+  def show
+    @restaurant = Restaurant.find(params[:id])
+  end
+
   def new
     @restaurant = Restaurant.new
   end
@@ -11,11 +15,14 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.new(restaurant_params)
     @restaurant.save
   
-    redirect_to restaurant_path(@restaurants)
+    redirect_to restaurants_path(@restaurants)
     end
 
-    def show
+    def destroy
       @restaurant = Restaurant.find(params[:id])
+      @restaurant.destroy
+
+      redirect_to restaurants_path(@restaurants)
     end
 
     private
